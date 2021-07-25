@@ -13,6 +13,7 @@ def lambda_handler(event, context):
             instances.append(i)
 
     for instance in instances:
+        print("Found instance: ",instance['InstanceId']," in status: ",instance['State']['Name'])
         try:
             for tag in instance['Tags']:
                 if tag['Key'] == 'uptime':
