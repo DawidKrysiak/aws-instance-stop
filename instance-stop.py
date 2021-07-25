@@ -7,11 +7,10 @@ def lambda_handler(event, context):
     ec2 = boto3.client('ec2', region_name=region)
 
     reservations = ec2.describe_instances().get('Reservations', [])
-    instances = sum(
-        [
-            [i for i in r['Instances']]
-            for r in reservations
-        ], [])
+    instances = []
+    for r in reservations:
+        for i in r['Instances']:
+            instances.append(i)
 
     for instance in instances:
         try:
