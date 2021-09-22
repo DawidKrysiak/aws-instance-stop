@@ -19,6 +19,7 @@ Deployed as Lambda function, script stops EC2 instances. Useful for all of those
             "Effect": "Allow",
             "Action": [
                 "rds:StopDBInstance",
+                "rds:DescribeDBInstances",
                 "logs:CreateLogStream",
                 "ec2:DescribeInstances",
                 "ec2:StopInstances",
