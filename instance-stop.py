@@ -5,6 +5,7 @@ def lambda_handler(event, context):
 
     region = os.environ['AWS_REGION']
     ec2 = boto3.client('ec2', region_name=region)
+    rds = boto3.client('rds',region_name=region)
 
     reservations = ec2.describe_instances().get('Reservations', [])
     instances = []
@@ -23,3 +24,17 @@ def lambda_handler(event, context):
                         print("stopping instance", instance)
         except:
             print("no instances")
+
+    database_instances = rds.describe_db_instances().get('DBInstances', [])
+
+    for database in database_instances:
+        db = database['DBInstanceIdentifier']
+        if database['DBInstanceStatus'] == 'running':
+            print('db is running :',db)
+            for tag in database['TagList']:
+                if tag['Key'] == 'uptime':
+                    uptime = tag['Value']
+                    if uptime == 'daytime':
+                        response = rds.stop_db_instance(DBInstanceIdentifier=db)
+        else:
+            print(db, 'is not running at this time')
