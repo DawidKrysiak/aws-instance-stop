@@ -1,7 +1,7 @@
 # aws-instance-stop
 
 ## Purpose
-Deployed as Lambda function, script stops EC2 instances. Useful for all of those who forget to stop the instances and then complain about AWS 'being so expensive'. :)
+Deployed as Lambda function, script stops EC2 and RDS instances. Useful for all of those who forget to stop the instances and then complain about AWS 'being so expensive'. :)
 
 ## Usage
 - Add to your EC2 instance(s) tag 'uptime' with appropriate value (in this example 'daytime').
