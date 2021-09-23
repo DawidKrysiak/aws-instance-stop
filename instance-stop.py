@@ -29,7 +29,7 @@ def lambda_handler(event, context):
 
     for database in database_instances:
         db = database['DBInstanceIdentifier']
-        if database['DBInstanceStatus'] == 'running':
+        if database['DBInstanceStatus'] == 'available':
             print('db is running :',db)
             for tag in database['TagList']:
                 if tag['Key'] == 'uptime':
