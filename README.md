@@ -6,7 +6,8 @@ Deployed as Lambda function, script stops EC2 and RDS instances. Useful for all 
 ## Usage
 - Add to your EC2 instance(s) tag 'uptime' with appropriate value (in this example 'daytime').
 - Deploy this script as Lambda
-- Add a trigger 'EventBridge (CloudWatch Events)'
+- If you need the systems to stop/start automatically, create another lambda from the code, just change `stop_instances` and `stop_db_instances` to `start_instances` and `start_db_instances` respectivelly 
+- Add a trigger(s) 'EventBridge (CloudWatch Events)' (e.g. start lambda triggered at 8AM, stop lambda at 8PM)
 - Create a new rule with appropriate Schedule expression.
 - create new role with policy: 
 
