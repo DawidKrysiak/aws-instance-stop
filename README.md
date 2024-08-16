@@ -2,6 +2,10 @@
 
 ## Purpose
 Deployed as Lambda function, script stops EC2 and RDS instances. Useful for all of those who forget to stop the instances and then complain about AWS 'being so expensive'. :)
+Let me be clear -below solution is for people who casually use AWS in free tier and panic when their bill has additional $1.24 :)
+If you actually need an uptime plan management, use AWS' own solution
+
+https://aws.amazon.com/solutions/implementations/instance-scheduler-on-aws/
 
 ## Usage
 - Add to your EC2/RDS instance(s) tag 'uptime' with appropriate value (in this example 'daytime').
