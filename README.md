@@ -3,7 +3,7 @@
 ## Purpose
 Deployed as Lambda function, script stops EC2 and RDS instances. Useful for all of those who forget to stop the instances and then complain about AWS 'being so expensive'. :)
 Let me be clear -below solution is for people who casually use AWS in free tier and panic when their bill has additional $1.24 :)
-If you actually need an uptime plan management, use AWS' own solution
+If you actually need an uptime plan management, use AWS' own solution -it's great, it's simple to use, but be careful because due to the frequency of checks, this solution incurs cost by itself (probably less than $20/month), so if you spend hundreds on your infra, it's a very good solution. If you spend $0.30/month, I suggest you use my solution :)
 
 https://aws.amazon.com/solutions/implementations/instance-scheduler-on-aws/
 
